@@ -36,7 +36,7 @@ app.config['SECRET_KEY'] = 'hard to guess string from si364'
 app.config['HEROKU_ON'] = os.environ.get('HEROKU')
 
 ## Your final Postgres database should be your uniqname, plus HW3, e.g. "jczettaHW3" or "maupandeHW3"
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://daniellemeyerson@localhost:5432/danimeye_final"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or "postgres://daniellemeyerson@localhost:5432/danimeye_final"
 ## Provided:
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
