@@ -1,16 +1,82 @@
-<h3>Navigation</h3>
-<ul>
-    <li><a href="{{ url_for('home')}}">Go to Marvel Character Input Form.</a></li>
-    <li><a href="{{ url_for('all_characters')}}">See all characters.</a></li>
-    <li><a href="{{ url_for('all_comics')}}">See all comics so far.</a></li>
-</ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous">
+    <link rel="stylesheet" type="text/css" href="../styles/final_css.css">
 
-{% block content %}
+    <style>
+        nav a {
+            text-decoration: none;
+            
+        }
+        nav a.current:link, a.current:visited {
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            font-weight: bold;
+        }
+
+        nav ul li{
+            display: inline-block;
+            padding-inline-start: 0px;
+            padding: 10px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            font-family: "Righteous";
+            text-align: center;
+        }
+
+        .inline-b {
+            display: inline-block;
+            width: 450px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+        }
+    </style>
+
+</head>
+
+
+
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Sign Out {{current_user.username}}</a>
+{% else %}
+    <a href="{{ url_for('login') }}">Sign In</a>
+{% endif %}
+
+<br>
+<header>
+    {% block navigation %}
+    <h3>Navigation</h3>
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home')}}">Go to Marvel Character Input Form.</a></li>
+            <li><a href="{{ url_for('all_characters')}}">See all characters.</a></li>
+            <li><a href="{{ url_for('all_comics')}}">See all comics so far.</a></li>
+            <li><a href="{{ url_for('create_collection')}}">Create a personal comic collection.</a></li>
+            <li><a href="{{ url_for('collections')}}">See all personal comic collections.</a></li>
+        </ul>
+    </nav>
+    {% endblock %}
+</header>
+{% block main_content %}
 
 <form action="{{ url_for('home') }}" method="POST">
     {{ form.name.label() }}{{ form.name() }}<br>
     {{ form.submit() }}
     {{ form.hidden_tag() }}
 </form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
 
 {% endblock %}

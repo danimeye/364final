@@ -1,0 +1,12 @@
+<form action="/update/{{ name }}" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.comic_picks.label }} {{ form.comic_picks() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>

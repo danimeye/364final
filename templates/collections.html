@@ -1,0 +1,32 @@
+{% extends 'base_midterm.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+
+{% block main_content %}
+<h1>My collections</h1>
+
+<ul>
+{% for c in collections %}
+    <li><a href="http://localhost:5000/collection/{{ c.id }}">{{ c.name }}</a></li>
+    <form method="POST" action="/delete/{{ c.id }}">
+    	{{ form_del.hidden_tag() }}
+    	{{ form_del.submit() }}
+    </form>
+    <form method="POST" action="/update/{{ c.name }}">
+    	{{ form_up.hidden_tag() }}
+    	{{ form_up.submit() }} 
+    </form>
+{% endfor %}
+</ul>
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+
+{% endblock %}

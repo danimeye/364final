@@ -1,0 +1,24 @@
+nav a {
+    text-decoration: none;
+    
+}
+nav a.current:link, a.current:visited {
+    text-transform: uppercase;
+}
+nav a:hover {
+    text-transform:uppercase;
+}
+
+nav ul li{
+    display: inline-block;
+    padding-inline-start: 0px;
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    font-family: "Righteous";
+    text-align: center;
+
+}

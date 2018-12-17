@@ -1,6 +1,11 @@
 {% extends 'base_midterm.html' %}
 
-{% block content %}
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+
+{% block main_content %}
 <h2>Oops! Sorry there is something wrong on our server end.</h2>
 <p>This is called 500 error.</p>
 {% endblock %}

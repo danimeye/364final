@@ -1,22 +1,35 @@
 {% extends 'base_midterm.html' %}
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
 
-{% block content %}
+{% block main_content %}
 
+<form action = "" method = "GET">
+	{{ form.hidden_tag() }}
+	{{ form.comic_keyword.label }} {{ form.comic_keyword() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div> <br>
 
 {% for char, comics in comic_dict.items() %}
+	<div>
 	{{ char }}
-	<ul>
-	{% for comic in comics %}
-		<li> {{ comic }} </li>
-	{% endfor %}
-	</ul>
+		<div>
+		{% for comic in comics %}
+			<p class="inline-b">
+				<img src="{{ comic.thumbnail }}"><br>
+				{{ comic.name }} 
+			</p>
+		{% endfor %}
+		</div>
+	</div>
 {% endfor %}
 
-
-<!-- <div>
-{% for message in get_flashed_messages() %}
-    <strong>*** {{ message }} ***</strong>
-{% endfor %}
-</div> -->
 
 {% endblock %}

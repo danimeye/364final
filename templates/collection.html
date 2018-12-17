@@ -1,0 +1,34 @@
+{% extends 'base_midterm.html' %}
+
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
+
+<style>
+
+	.comic_container div {
+		display: flex;
+		display: inline-block;
+
+		flex-direction: row;
+	}
+	
+</style>
+
+{% block main_content %}
+<h1>{{ collection.name }}</h1>
+
+<div class = "comic_container">
+{% for sg in comics %}
+	<div>
+		<strong>{{ sg.name }}</strong>
+		<img src="{{ sg.thumbnail }}">
+	</div>
+<div>
+
+      <!-- <iframe src={{ sg.embedURL }} width="144" height="81" frameBorder="0" ></iframe> -->
+    <br><br>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,15 +1,29 @@
 {% extends 'base_midterm.html' %}
+{% block navigation %}
+ {{ super() }}
+{% endblock %}
 
-{% block content %}
+{% block main_content %}
 
 <h1>Searched Characters </h1>
 
 {% for char in all_characters %}
-    <p>{{ char }}</p>
+    <p>
+    	<img src="{{ char.thumbnail }}">
+    	{{ char.name }} - {{ char.description }}
+    </p>
 {% endfor %}
 
 {% if not all_characters %}
     There are no characters to show.
 {% endif %}
 
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+{% endfor %}
+</div>
+
+<a href="{{ url_for('home')}}">Return to search for new characters</a>
 {% endblock %}
+
