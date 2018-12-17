@@ -5,6 +5,9 @@
 
 This application allows a user to search for different Marvel characters and learn information related to that character such as character description and comics that the character is featured in. They can search for characters on the home page (/) which will display the character descriptions and images on the /characters app route. To see the comics that character is in, they can click 'See all comics', which would navigate them to /comics app route. Registered and logged in users can also create comic collections from the available list of comics on the /create_collection app route. After creating a collection, users can view a single collection (/collection/<collection_id>), all of their collections (/collections), and also update any of their existing collections if they'd like (/update/<collection_name>). Similarly, any collection can be deleted by clicking the 'Delete' button of the corresponding collection (/delete/<collection_id>). 
 
+**Link to Heroku**
+https://marvel-comics-app.herokuapp.com/
+
 **Requirements**
 
 - [x] Ensure that your SI364final.py file has all the setup (app.config values, import statements, code to run the app if that file is run, etc) necessary to run the Flask application, and the application runs correctly on http://localhost:5000 (and the other routes you set up). Your main file must be called SI364final.py, but of course you may include other files if you need.
@@ -64,3 +67,5 @@ This application allows a user to search for different Marvel characters and lea
 - [x] Include at least two uses of url_for. (HINT: Likely you'll need to use this several times, really.)
 
 - [x] Have at least 5 view functions that are not included with the code we have provided. (But you may have more!)
+
+- [x] Deploy the application to the internet (Heroku) — only counts if it is up when we grade / you can show proof it is up at a URL and tell us what the URL is in the README. (Heroku deployment as we taught you is 100% free so this will not cost anything.)
